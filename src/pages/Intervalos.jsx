@@ -1,5 +1,4 @@
 import { useState } from "react";
-import { ClefNumberRadios } from "../components/forIntervals/clefNumberRadios";
 import { ClefChoice } from "../components/forIntervals/ClefChoice";
 import { IntervalCanvas } from "../components/forIntervals/IntervalCanvas";
 import { GenerateIntervalsBtns } from "../components/forIntervals/GenerateIntervalsBtns";
@@ -8,6 +7,7 @@ import { IntervalButtons } from "../components/forIntervals/IntervalButtons";
 import { ResultIntervals } from "../components/forIntervals/ResultIntervals";
 import { fromInterval } from "../utils/fromInterval";
 import { checkNoteWithinRange } from "../utils/checkNoteWithinRange";
+import { ClefNumberRadios } from "../components/forIntervals/ClefNumberRadios";
 
 export function Intervalos() {
 
