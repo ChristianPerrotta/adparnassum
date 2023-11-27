@@ -36,6 +36,7 @@ export function PrimeiraEspecieMaior() {
         if(newIndex && newIndex <= amount && newIndex > 0) {
             setCantusIndex(newIndex);
             adjustClefPosition(newIndex);
+            setCounterpoint([]);
         }
     }
 
