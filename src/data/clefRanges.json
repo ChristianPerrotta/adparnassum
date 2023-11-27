@@ -2,41 +2,49 @@
     "soprano": {
         "min": {
             "pitch": "c",
-            "octave": 4
+            "octave": 4,
+            "numeric":  40
         },
         "max": {
             "pitch": "g",
-            "octave": 5
+            "octave": 5,
+            "numeric": 54
         }
     },
     "alto": {
         "min": {
             "pitch": "e",
-            "octave": 3
+            "octave": 3,
+            "numeric": 32
         },
         "max": {
             "pitch": "c",
-            "octave": 5
+            "octave": 5,
+            "numeric": 50
         }
     },
     "tenor": {
         "min": {
             "pitch": "b",
-            "octave": 2
+            "octave": 2,
+            "numeric": 26
         },
         "max": {
             "pitch": "g",
-            "octave": 4
+            "octave": 4,
+            "numeric": 44
         }
     },
     "bass": {
         "min": {
             "pitch": "e",
-            "octave": 2
+            "octave": 2,
+            "numeric": 22
         },
         "max": {
             "pitch": "c",
-            "octave": 4
+            "octave": 4,
+            "numeric": 40
         }
     }
 }
