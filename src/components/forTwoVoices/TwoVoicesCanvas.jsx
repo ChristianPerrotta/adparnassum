@@ -7,17 +7,19 @@ export function TwoVoicesCanvas({clef, clefPos, cantus, index, counterpoint}) {
     const clefRestPosition = {"soprano": "b/4", "alto": "e/4", "tenor": "c/4", "bass": "f/3"}
     const canvasWidth = 100 * cantus.length + 20;
 
-    if(clefPos === "upper") {
+    if(clefPos === "upper" && clef !== "soprano") {
         // upper is counterpoint, lower is CF
         var lowerClef = clef;
         var lowerNotes = cantus;
         var upperClef = allClefs[allClefs.indexOf(clef) + 1];
         var upperNotes = counterpoint;
+        var isUpperCF = false;
     } else {
         var upperClef = clef;
         var lowerClef = allClefs[allClefs.indexOf(clef) - 1];
         var upperNotes = cantus;
         var lowerNotes = counterpoint;
+        var isUpperCF = true;
     }
 
     useEffect(() => {
@@ -45,7 +47,7 @@ export function TwoVoicesCanvas({clef, clefPos, cantus, index, counterpoint}) {
             }
             let notesMeasureUpper = [new StaveNote({keys: [upperNote], duration: upperDuration, 
                                                     clef: upperClef, align_center: alignUpper})];
-            if (i === index) notesMeasureUpper[0].setStyle({fillStyle: "orange", strokeStyle: "orange"});
+            if (i === index && !isUpperCF) notesMeasureUpper[0].setStyle({fillStyle: "orange", strokeStyle: "orange"});
             Formatter.FormatAndDraw(context, staveMeasureUpper, notesMeasureUpper);
 
 
@@ -64,7 +66,7 @@ export function TwoVoicesCanvas({clef, clefPos, cantus, index, counterpoint}) {
             }
             let notesMeasureLower = [new StaveNote({keys: [lowerNote], duration: lowerDuration, 
                                                     clef: lowerClef, align_center: alignLower})]
-            if (i === index) notesMeasureLower[0].setStyle({fillStyle: "orange", strokeStyle: "orange"});
+            if (i === index && isUpperCF) notesMeasureLower[0].setStyle({fillStyle: "orange", strokeStyle: "orange"});
 
             Formatter.FormatAndDraw(context, staveMeasureLower, notesMeasureLower);
 

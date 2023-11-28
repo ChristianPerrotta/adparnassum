@@ -37,6 +37,7 @@ export function PrimeiraEspecieMaior() {
             setCantusIndex(newIndex);
             adjustClefPosition(newIndex);
             setCounterpoint([]);
+            setIndex(0);
         }
     }
 
@@ -44,6 +45,8 @@ export function PrimeiraEspecieMaior() {
         let newIndex = Math.floor(Math.random() * amount) + 1;
         setCantusIndex(newIndex);
         adjustClefPosition(newIndex);
+        setCounterpoint([]);
+        setIndex(0);
     }
 
     function addNote(e) {
@@ -92,13 +95,13 @@ export function PrimeiraEspecieMaior() {
     }
 
     function nextNote() {
-        if (index !== cantus.length) {
+        if (index < cantus.length - 1) {
             setIndex(prev => prev + 1);
         }
     }
 
     function previousNote() {
-        if (index !== 1) {
+        if (index > 0) {
             setIndex(prev => prev - 1);
         }
     }
