@@ -1,13 +1,13 @@
-export function StaffRadios({selectedRadioBtn, pitches, setClef, generateNewPitches}) {
+export default function StaffRadios({selectedRadioBtn, notes, setClef, generateNewNotes}) {
 
     function isRadioSelected(value) {
         return (selectedRadioBtn === value)
     }
 
-    function handleRadioClick(e) {
-        let newClef = e.currentTarget.value;
+    function handleRadioClick(event) {
+        let newClef = event.currentTarget.value;
         setClef(newClef);
-        generateNewPitches(newClef, pitches.length);
+        generateNewNotes(newClef, notes.length);
     }
 
     return (

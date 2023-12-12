@@ -1,7 +1,7 @@
-export function NoteButtons({handleNotePress, index, pitches}) {
+export default function NoteButtons({handleNotePress, index, notes}) {
 
     function isBtnDisabled() {
-        return (index >= pitches.length)
+        return (index >= notes.length)
     }
 
     return (

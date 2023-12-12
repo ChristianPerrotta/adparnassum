@@ -1,4 +1,4 @@
-export function ResultIntervals({result, intervals, index}) {
+export default function ResultIntervals({result, intervals, index}) {
 
     const intervalNames = ["uníssono", "segunda", "terça", "quarta", "quinta", "sexta", "sétima", "oitava"]
 

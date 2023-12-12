@@ -1,7 +1,7 @@
 import { useEffect } from "react";
 import { Renderer, Stave, StaveNote, Formatter } from "vexflow"
 
-export function Canvas({pitches, clef, index}) {
+export default function Canvas({notes, clef, index}) {
 
     useEffect(() => {
         const canvasElement = document.getElementById("canvas");
@@ -10,14 +10,15 @@ export function Canvas({pitches, clef, index}) {
         const context = renderer.getContext();
     
         var offset = 10;
+        
         //making a stave for each note
-        pitches.forEach((p, i) => {
+        notes.forEach((note, i) => {
             const staveMeasure = new Stave(offset, 0, 120)
     
             if (i === 0) staveMeasure.addClef(clef); 
             staveMeasure.setContext(context).draw();
     
-            let notesMeasure = [new StaveNote({keys: [p], duration: "w", clef: clef})];
+            let notesMeasure = [new StaveNote({keys: [note.notation], duration: "w", clef: clef})];
     
             if (i === index) notesMeasure[0].setStyle({fillStyle: "orange", strokeStyle: "orange"});
             Formatter.FormatAndDraw(context, staveMeasure, notesMeasure);

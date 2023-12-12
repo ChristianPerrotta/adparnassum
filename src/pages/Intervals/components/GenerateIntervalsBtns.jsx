@@ -1,4 +1,4 @@
-export function GenerateIntervalsBtns ({handleNewIntervals}) {
+export default function GenerateIntervalsBtns ({handleNewIntervals}) {
     return (
         <div className="d-flex gap-3">
             <button type="button" className="btn btn-primary my-3" value="1" onClick={handleNewIntervals}>Gerar 1 intervalo</button>

@@ -1,7 +1,7 @@
-export function IntervalButtons({handleIntervalPress, index, pitches}) {
+export default function IntervalButtons({handleIntervalPress, index, notes}) {
 
     function isBtnDisabled() {
-        return (index >= pitches.length)
+        return (index >= notes.length)
     }
     
     return (

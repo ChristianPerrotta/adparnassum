@@ -1,23 +1,23 @@
 import { useEffect } from "react"
 import { Formatter, Renderer, Stave, StaveNote } from "vexflow"
 
-export function TwoVoicesCanvas({clef, clefPos, cantus, index, counterpoint}) {
+export default function TwoVoicesCanvas({clef, clefPosition, cantusNotes, index, counterpoint}) {
 
     const allClefs = ["bass", "tenor", "alto", "soprano"];
     const clefRestPosition = {"soprano": "b/4", "alto": "e/4", "tenor": "c/4", "bass": "f/3"}
-    const canvasWidth = 100 * cantus.length + 20;
+    const canvasWidth = 100 * cantusNotes.length + 20;
 
-    if(clefPos === "upper" && clef !== "soprano") {
+    if(clefPosition === "upper" && clef !== "soprano") {
         // upper is counterpoint, lower is CF
         var lowerClef = clef;
-        var lowerNotes = cantus;
+        var lowerNotes = cantusNotes;
         var upperClef = allClefs[allClefs.indexOf(clef) + 1];
         var upperNotes = counterpoint;
         var isUpperCF = false;
     } else {
         var upperClef = clef;
         var lowerClef = allClefs[allClefs.indexOf(clef) - 1];
-        var upperNotes = cantus;
+        var upperNotes = cantusNotes;
         var lowerNotes = counterpoint;
         var isUpperCF = true;
     }
@@ -31,7 +31,7 @@ export function TwoVoicesCanvas({clef, clefPos, cantus, index, counterpoint}) {
         renderer.resize(canvasWidth,200)
         const context = renderer.getContext()
 
-        cantus.forEach((p, i) => {
+        cantusNotes.forEach((note, i) => {
             //upper stave
             const staveMeasureUpper = new Stave(offset, 0, 100);
             if (i === 0) staveMeasureUpper.addClef(upperClef)
@@ -44,6 +44,8 @@ export function TwoVoicesCanvas({clef, clefPos, cantus, index, counterpoint}) {
                 upperNote = clefRestPosition[upperClef]
                 upperDuration = "wr"
                 alignUpper = true;
+            } else {
+                upperNote = upperNote.notation
             }
             let notesMeasureUpper = [new StaveNote({keys: [upperNote], duration: upperDuration, 
                                                     clef: upperClef, align_center: alignUpper})];
@@ -63,6 +65,8 @@ export function TwoVoicesCanvas({clef, clefPos, cantus, index, counterpoint}) {
                 lowerNote = clefRestPosition[lowerClef];
                 lowerDuration = "wr";
                 alignLower = true;
+            } else {
+                lowerNote = lowerNote.notation
             }
             let notesMeasureLower = [new StaveNote({keys: [lowerNote], duration: lowerDuration, 
                                                     clef: lowerClef, align_center: alignLower})]

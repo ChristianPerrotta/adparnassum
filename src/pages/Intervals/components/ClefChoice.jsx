@@ -1,4 +1,4 @@
-export function ClefChoice({staveNumber, clefs, pitches, setClefs, generateNewIntervals}) {
+export default function ClefChoice({staveNumber, clefs, notes, setClefs, generateNewIntervals}) {
 
     // Single clef
     function isSingleClefSelected(value) {
@@ -8,7 +8,7 @@ export function ClefChoice({staveNumber, clefs, pitches, setClefs, generateNewIn
     function handleSingleClefRadioClick(e) {
         let clef = e.currentTarget.value;
         setClefs([clef]);
-        generateNewIntervals([clef], pitches.length);
+        generateNewIntervals([clef], notes.length);
     }
 
     // Double clef
@@ -20,7 +20,7 @@ export function ClefChoice({staveNumber, clefs, pitches, setClefs, generateNewIn
     function handleDoubleClefRadioClick(e) {
         let bothClefs = e.currentTarget.value.split("-");
         setClefs(bothClefs);
-        generateNewIntervals(bothClefs, pitches.length);
+        generateNewIntervals(bothClefs, notes.length);
     }
 
     if (staveNumber === "single") {
@@ -29,28 +29,28 @@ export function ClefChoice({staveNumber, clefs, pitches, setClefs, generateNewIn
                 <p className="mt-3">Escolha a clave:</p>
                 <div className="container">
                     <div className="form-check form-check-inline">
-                        <input className="form-check-input" type="radio" name="staffType" value="soprano" 
+                        <input className="form-check-input" type="radio" name="staffType" value="soprano" id="soprano"
                         checked={isSingleClefSelected("soprano")} onChange={handleSingleClefRadioClick} />
                         <label className="form-check-label" htmlFor="soprano">
                             Soprano
                         </label>
                     </div>
                     <div className="form-check form-check-inline">
-                        <input className="form-check-input" type="radio" name="staffType" value="alto" 
+                        <input className="form-check-input" type="radio" name="staffType" value="alto" id="alto"
                         checked={isSingleClefSelected("alto")} onChange={handleSingleClefRadioClick} />
                         <label className="form-check-label" htmlFor="alto">
                             Alto
                         </label>
                     </div>
                     <div className="form-check form-check-inline">
-                        <input className="form-check-input" type="radio" name="staffType" value="tenor" 
+                        <input className="form-check-input" type="radio" name="staffType" value="tenor" id="tenor"
                         checked={isSingleClefSelected("tenor")} onChange={handleSingleClefRadioClick} />
                         <label className="form-check-label" htmlFor="tenor">
                             Tenor
                         </label>
                     </div>
                     <div className="form-check form-check-inline">
-                        <input className="form-check-input" type="radio" name="staffType" value="bass" 
+                        <input className="form-check-input" type="radio" name="staffType" value="bass" id="bass"
                         checked={isSingleClefSelected("bass")} onChange={handleSingleClefRadioClick} />
                         <label className="form-check-label" htmlFor="bass">
                             Baixo

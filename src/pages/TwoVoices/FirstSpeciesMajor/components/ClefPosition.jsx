@@ -1,6 +1,6 @@
 import React from 'react'
 
-const ClefPosition = ({ clef, clefPos, setClefPos }) => {
+export default function ClefPosition ({ clef, clefPosition, setClefPosition }) {
 
     if(clef === "alto") {
         var upperClef = "soprano";
@@ -10,26 +10,26 @@ const ClefPosition = ({ clef, clefPos, setClefPos }) => {
         var lowerClef = "baixo";
     }
 
-    function handleClefPosition(e) {
-        setClefPos(e.target.value)
+    function handleClefPosition(event) {
+        setClefPosition(event.target.value)
     }
 
-    function isRadioSelected(val) {
-        return (val === clefPos)
+    function isRadioSelected(inputValue) {
+        return (inputValue === clefPosition)
     }
 
     return (
         <div className="container">
             <div className="form-check form-check-inline">
                 <input className="form-check-input" type="radio" name="staffPosition" value="upper" 
-                checked={isRadioSelected("upper")} onChange={handleClefPosition} />
+                checked={isRadioSelected("upper")} onChange={handleClefPosition} id="upper" />
                 <label className="form-check-label" htmlFor="upper">
                     Clave acima ({upperClef})
                 </label>
             </div>
             <div className="form-check form-check-inline">
                 <input className="form-check-input" type="radio" name="staffPosition" value="lower" 
-                checked={isRadioSelected("lower")} onChange={handleClefPosition} />
+                checked={isRadioSelected("lower")} onChange={handleClefPosition} id="lower" />
                 <label className="form-check-label" htmlFor="lower">
                     Clave abaixo ({lowerClef})
                 </label>
@@ -37,5 +37,3 @@ const ClefPosition = ({ clef, clefPos, setClefPos }) => {
         </div>
     )
 }
-
-export default ClefPosition

@@ -1,4 +1,4 @@
-export function Result({result, pitches, index}) {
+export default function Result({result, notes, index}) {
 
     const pitchNames = {
         "c": "dó",
@@ -18,7 +18,7 @@ export function Result({result, pitches, index}) {
         return (
             <div className="row">
                 <div className="alert alert-success col-lg-8" role="alert">
-                    Correto! A nota é {pitchNames[pitches[index-1][0]]}!
+                    Correto! A nota é {pitchNames[notes[index-1].pitch]}!
                 </div>
             </div>
         )
@@ -28,7 +28,7 @@ export function Result({result, pitches, index}) {
         return(
             <div className="row">
                 <div className="alert alert-danger col-lg-8" role="alert">
-                    A nota não está certa... O correto seria {pitchNames[pitches[index-1][0]]}.
+                    A nota não está certa... O correto seria {pitchNames[notes[index-1].pitch]}.
                 </div>
             </div>
         )
