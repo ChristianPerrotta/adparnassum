@@ -34,6 +34,7 @@ With it, you can practice:
 
 This website has been created with:
 * [![React][React.js]][React-url]
+* [![ReactRouter][ReactRouter]][ReactRouter-url]
 * [![Bootstrap][Bootstrap.com]][Bootstrap-url]
 * [![Vite][Vitejs]][Vite-url]
 * [![VexFlow][VexFlow-badge]][VexFlow-url]
@@ -86,6 +87,8 @@ Project Link: [https://github.com/ChristianPerrotta/adparnassum](https://github.
 [project-screenshot]: src/assets/screenshot.png
 [React.js]: https://img.shields.io/badge/React-20232A?style=for-the-badge&logo=react&logoColor=61DAFB
 [React-url]: https://reactjs.org/
+[ReactRouter]: https://img.shields.io/badge/React_Router-CA4245?style=for-the-badge&logo=react-router&logoColor=white
+[ReactRouter-url]: https://reactrouter.com/en/main
 [Bootstrap.com]: https://img.shields.io/badge/Bootstrap-563D7C?style=for-the-badge&logo=bootstrap&logoColor=white
 [Bootstrap-url]: https://getbootstrap.com
 [Vitejs]: https://img.shields.io/badge/vite-%23646CFF.svg?style=for-the-badge&logo=vite&logoColor=white
